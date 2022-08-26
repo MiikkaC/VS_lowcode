@@ -1,0 +1,256 @@
+@import '../iconfont/iconfont.css';
+
+.editor {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 140, 255, 0.3);
+}
+
+.editor-left,
+.editor-right {
+    position: absolute;
+    width: 270px;
+    background-color: rgb(135, 206, 235, 0.5);
+    top: 0;
+    bottom: 0;
+}
+
+.editor-left {
+    overflow: auto;
+    left: 0;
+}
+
+.editor-left-title {
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+
+.editor-left-item {
+    position: relative;
+    width: 250px;
+    min-height: 100px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: move;
+    user-select: none;
+    /*元素和子元素的文本将无法被选中*/
+}
+
+.editor-left-item>span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(96, 205, 224);
+    color: #fff;
+    font-size: medium;
+    padding: 4px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    text-align: center;
+
+
+}
+
+.editor-left-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    opacity: 0.2;
+}
+
+.editor-right {
+    right: 0;
+}
+
+.editor-top {
+    position: absolute;
+    right: 280px;
+    left: 280px;
+    height: 80px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 设置菜单栏样式 */
+.editor-top-button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .3);
+    color: #fff;
+    margin-left: 5px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.editor-top-button:hover {
+    background-color: rgba(0, 0, 0);
+}
+
+.editor-container {
+    padding: 80px 270px 0;
+    height: 100%;
+    box-sizing: border-box;
+
+}
+
+.editor-container-scroll {
+    /* 滚动条 */
+    overflow: scroll;
+    height: 100%;
+}
+
+/*画布区*/
+.editor-container-content {
+    margin: 20px auto;
+    background-color: #f1f1f1;
+    opacity: 0.8;
+    position: relative;
+}
+
+.editor-block {
+    position: absolute;
+}
+
+.editor-block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.editor-block-focus::after {
+    border: 2px dashed black;
+}
+
+.editor-block-preview::after {
+    display: none;
+}
+
+/* 纵向辅助线*/
+.line-x {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 2px dashed black;
+    cursor: all-scroll;
+
+}
+
+
+/* 横向辅助线 */
+.line-y {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 2px dashed black;
+    cursor: all-scroll;
+
+}
+
+
+/*右键下拉菜单*/
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 2px 2px #ccc;
+    border-radius: 5px;
+
+}
+
+.dropdown-isShow {
+    display: block;
+}
+
+.dropdown-item {
+    line-height: 30px;
+    width: 100px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: skyblue;
+    opacity: 0.7;
+}
+
+/*改变尺寸*/
+.block-resize {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: black;
+    z-index: 1000;
+    user-select: none;
+    cursor: crosshair;
+}
+
+.block-resize-top {
+    top: -2px;
+    left: calc(50% - 2px)
+}
+
+.block-resize-bottom {
+    bottom: -2px;
+    left: calc(50% - 2px)
+}
+
+.block-resize-left {
+    top: calc(50% - 2px);
+    left: -2px
+}
+
+.block-resize-right {
+    top: calc(50% - 2px);
+    right: -2px
+}
+
+.block-resize-top-left {
+    top: -2px;
+    left: -2px;
+
+}
+
+.block-resize-top-right {
+    top: -2px;
+    right: -2px;
+
+}
+
+.block-resize-bottom-left {
+    bottom: -2px;
+    left: -2px;
+
+}
+
+.block-resize-bottom-right {
+    bottom: -2px;
+    right: -2px;
+}
+
+.el-button,
+.el-input {
+    transition: none;
+}
